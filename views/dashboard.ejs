@@ -51,7 +51,7 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="/">ADS-SJSU</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -65,8 +65,22 @@
                 </ul>
             </div>
         </div>
+    </nav> -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">ADS-SJSU</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="confirmLogout()">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
-
     <div class="welcome-section">
         <div class="container">
             <h1>Welcome, <%= user.username %></h1>
@@ -83,7 +97,7 @@
                             <h3 class="course-title"><%= course.name %></h3>
                             <p class="text-muted"><%= course.description %></p>
                             <div class="d-grid">
-                                <a href="/course/<%= course.id %>" class="btn btn-sjsu">View Course</a>
+                                <a href="https://sjsu.edu/applied-data-science/msda/curriculum-courses/index.php" class="btn btn-sjsu">View Course</a>
                             </div>
                         </div>
                     </div>
@@ -103,7 +117,15 @@
             <p class="mb-0">&copy; 2024 Department of Applied Data Science - San Jose State University</p>
         </div>
     </footer>
-
+    <script>
+        function confirmLogout() {
+            if (confirm('Are you sure you want to logout?')) {
+                window.location.href = '/logout';
+            }
+        }
+    </script>
+</body>
+</html>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

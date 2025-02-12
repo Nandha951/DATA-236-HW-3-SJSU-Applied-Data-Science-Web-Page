@@ -55,7 +55,12 @@ app.use(session({
     secret: 'your_secret_key',
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false }
+    cookie: { 
+        secure: process.env.NODE_ENV === 'production',
+        httpOnly: true,
+        maxAge: 1000 * 60 * 60 * 24
+    },
+    name: 'sessionId',
 }));
 
 // Routes
